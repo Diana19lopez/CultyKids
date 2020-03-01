@@ -43,7 +43,7 @@ import javax.persistence.GenerationType;
 
 	@ManyToOne(fetch=FetchType.LAZY)
 		@JoinColumn(name="usuario_id",nullable=false)
-	private Tema usuario;
+	private Usuario usuario;
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="nivel_id",nullable=false)
