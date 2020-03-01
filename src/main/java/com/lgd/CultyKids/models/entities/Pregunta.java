@@ -25,25 +25,9 @@ import javax.persistence.GenerationType;
 	@Column(name="enunciado")
 	private String enunciado;
 	
-	@Column(name="correcta")
-	private String correcta;
-	
-	@Column(name="resp1")
-	private String resp1;
-	
-	@Column(name="resp2")
-	private String resp2;
-	
-	@Column(name="resp3")
-	private String resp3;
-	
 	@ManyToOne(fetch=FetchType.LAZY)
 		@JoinColumn(name="tema_id",nullable=false)
 	private Tema tema;
-
-	@ManyToOne(fetch=FetchType.LAZY)
-		@JoinColumn(name="usuario_id",nullable=false)
-	private Usuario usuario;
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="nivel_id",nullable=false)

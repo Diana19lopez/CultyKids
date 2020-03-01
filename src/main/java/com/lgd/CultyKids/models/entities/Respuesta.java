@@ -20,16 +20,16 @@ import javax.persistence.GenerationType;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private Long id;
-	
-	@Column(name="acertada")
-	private String acertada;
-
-	@ManyToOne(fetch=FetchType.LAZY)
-		@JoinColumn(name="tema_id",nullable=false)
-	private Tema tema;
 
 	@ManyToOne(fetch=FetchType.LAZY)
 		@JoinColumn(name="pregunta_id",nullable=false)
 	private Pregunta pregunta;
 
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="usuario_id",nullable=false)
+	private Usuario usuario;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="seleccion_id",nullable=false)
+	private Seleccion seleccion;
 }

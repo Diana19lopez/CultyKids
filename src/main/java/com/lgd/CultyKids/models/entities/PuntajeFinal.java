@@ -14,19 +14,13 @@ import javax.persistence.GenerationType;
 
 
 @Entity
-@Table(name="PuntajeFinal")
+@Table(name="Puntajefinal")
 		
 		public class PuntajeFinal implements Serializable { 
 		private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 		private Long id;
-	
-	@Column(name="rango")
-	private String rango;
-	
-	@Column(name="acertadas")
-	private String acertadas;
 
 	@Column(name="puntuacionfinal")
 	private String puntuacionfinal;
@@ -35,5 +29,7 @@ import javax.persistence.GenerationType;
 		@JoinColumn(name="usuario_id",nullable=false)
 	private Tema usuario;
 
-	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="respuesta_id",nullable=false)
+	private Respuesta respuesta;
 }
