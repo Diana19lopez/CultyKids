@@ -29,7 +29,5 @@ import javax.persistence.GenerationType;
 	@JoinColumn(name="usuario_id",nullable=false)
 	private Usuario usuario;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="seleccion_id",nullable=false)
-	private Seleccion seleccion;
+	
 }
