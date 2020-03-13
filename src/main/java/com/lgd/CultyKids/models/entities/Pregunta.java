@@ -20,7 +20,7 @@ import javax.persistence.GenerationType;
 		private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-		private Long id;
+	private Long id;
 	
 	@Column(name="enunciado")
 	private String enunciado;
@@ -32,4 +32,38 @@ import javax.persistence.GenerationType;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="nivel_id",nullable=false)
 	private Nivel nivel;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getEnunciado() {
+		return enunciado;
+	}
+
+	public void setEnunciado(String enunciado) {
+		this.enunciado = enunciado;
+	}
+
+	public Tema getTema() {
+		return tema;
+	}
+
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
+
+	public Nivel getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(Nivel nivel) {
+		this.nivel = nivel;
+	}
+	
+	
 }

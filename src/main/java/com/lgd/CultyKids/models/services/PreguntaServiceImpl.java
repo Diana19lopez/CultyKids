@@ -16,25 +16,23 @@ import com.lgd.CultyKids.models.repository.PreguntaRepository;
 
 	@Override
 	public List<Pregunta> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Pregunta> preguntas = (List<Pregunta>)repository.findAll();
+		return preguntas;
 	}
 
 	@Override
 	public Pregunta save(Pregunta entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.save(entity);
 	}
 
 	@Override
 	public Optional<Pregunta> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findById(id);
 	}
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		repository.deleteById(id);
 		
 	}
 }

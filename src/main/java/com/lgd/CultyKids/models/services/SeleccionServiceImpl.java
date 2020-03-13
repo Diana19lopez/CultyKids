@@ -16,25 +16,22 @@ import com.lgd.CultyKids.models.repository.SeleccionRepository;
 
 	@Override
 	public List<Seleccion> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Seleccion> selecciones = (List<Seleccion>)repository.findAll();
+		return selecciones;
 	}
 
 	@Override
 	public Seleccion save(Seleccion entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.save(entity);
 	}
 
 	@Override
 	public Optional<Seleccion> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findById(id);
 	}
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		
+		repository.deleteById(id);
 	}
 }
