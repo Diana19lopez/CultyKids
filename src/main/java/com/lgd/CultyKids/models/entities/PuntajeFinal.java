@@ -32,4 +32,21 @@ import javax.persistence.GenerationType;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="respuesta_id",nullable=false)
 	private Respuesta respuesta;
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Tema getUsuario() {
+		return usuario;
+	}
+
+	public void setRespuesta(String nivel) {
+		this.respuesta = respuesta;
+	}
+	
 }
