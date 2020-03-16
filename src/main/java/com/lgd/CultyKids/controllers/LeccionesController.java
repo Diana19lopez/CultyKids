@@ -12,19 +12,19 @@ import com.lgd.CultyKids.models.entities.Lecciones;
 import com.lgd.CultyKids.models.services.LeccionesService;
 
 @RestController
-@RequestMapping("/lecciones")
+@RequestMapping("/cultyKids/lecciones")
 public class LeccionesController {
 
 	@Autowired
 	private LeccionesService leccionesService;
 	
-	@RequestMapping (value="/lecciones", method = RequestMethod.GET)
+	@RequestMapping (value="", method = RequestMethod.GET)
 	public List<Lecciones> getList(){
 		List<Lecciones> address = leccionesService.findAll();
 		return address;
 	}
 	
-	@RequestMapping(value="/lecciones/lecciones_id/desarrollo/", method = RequestMethod.GET)
+	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public Lecciones obtenerPorId(@PathVariable("id") Long id){
 	java.util.Optional<Lecciones> address = leccionesService.findById(id);
 	return address.get();

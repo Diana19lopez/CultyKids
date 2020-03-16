@@ -13,19 +13,19 @@ import com.lgd.CultyKids.models.entities.Tema;
 import com.lgd.CultyKids.models.services.TemaService;
 
 @RestController
-@RequestMapping("/tema")
+@RequestMapping("/cultyKids/tema")
 public class TemaController {
 
 	@Autowired
 	private TemaService temaService;
 	
-	@RequestMapping (value="/temas", method = RequestMethod.GET)
+	@RequestMapping (value="", method = RequestMethod.GET)
 	public List<Tema> getList(){
 		List<Tema> address = temaService.findAll();
 		return address;
 	}
 	
-	@RequestMapping(value="/temas/tema_id/contenido/", method = RequestMethod.GET)
+	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public Tema obtenerPorId(@PathVariable("id") Long id){
 	java.util.Optional<Tema> address = temaService.findById(id);
 	return address.get();

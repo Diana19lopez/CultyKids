@@ -18,19 +18,19 @@ import com.lgd.CultyKids.models.services.PuntajefinalService;
 
 @Component
 @RestController
-@RequestMapping("/puntajefinal")
+@RequestMapping("/cultyKids/puntajefinal")
 public class PuntajefinalController {
 
 	@Autowired
 	private PuntajefinalService puntajefinalService;
 	
-	@RequestMapping (value="/puntajefinal", method = RequestMethod.GET)
+	@RequestMapping (value="", method = RequestMethod.GET)
 	public List<PuntajeFinal> getList(){
 		List<PuntajeFinal> address =  puntajefinalService.findAll();
 		return address;
 	}
 	
-	@RequestMapping(value="/puntajefinal/puntajefinal_id/nota/", method = RequestMethod.GET)
+	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public  PuntajeFinal obtenerPorId(@PathVariable("id") Long id){
 	java.util.Optional< PuntajeFinal> address =  puntajefinalService.findById(id);
 	return address.get();

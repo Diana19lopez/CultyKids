@@ -14,19 +14,19 @@ import com.lgd.CultyKids.models.services.NivelService;
 
 @Component
 @RestController
-@RequestMapping("/nivel")
+@RequestMapping("/cultyKids/nivel")
 public class NivelController {
 
 	@Autowired
 	private NivelService nivelService;
 	
-	@RequestMapping (value="/nivel", method = RequestMethod.GET)
+	@RequestMapping (value="", method = RequestMethod.GET)
 	public List<Nivel> getList(){
 		List<Nivel> address = nivelService.findAll();
 		return address;
 	}
 	
-	@RequestMapping(value="/nivel/nivel_id/contenido/", method = RequestMethod.GET)
+	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public Nivel obtenerPorId(@PathVariable("id") Long id){
 	java.util.Optional<Nivel> address = nivelService.findById(id);
 	return address.get();
