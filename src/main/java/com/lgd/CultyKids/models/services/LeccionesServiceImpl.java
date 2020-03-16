@@ -10,39 +10,35 @@ import com.lgd.CultyKids.models.entities.Lecciones;
 import com.lgd.CultyKids.models.repository.LeccionesRepository;
 
 
+
 	@Service
-	public class LeccionesServiceImpl implements LeccionesService {
+	public class LeccionesServiceImpl implements LeccionesService{
 	
 	@Autowired
 	public LeccionesRepository repository;
-
+	
 	@Override
 	public List<Lecciones> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Lecciones> lecciones = (List<Lecciones>)repository.findAll();
+		return lecciones;
 	}
-
+	
 	@Override
 	public Lecciones save(Lecciones entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.save(entity);
 	}
-
+	
 	@Override
 	public Optional<Lecciones> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findById(id);
 	}
-
+	
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		repository.deleteById(id);
 		
 	}
-
-	
-}
-
+	}
 	
 
 	

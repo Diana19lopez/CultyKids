@@ -16,8 +16,8 @@ import com.lgd.CultyKids.models.repository.PreguntaRepository;
 
 	@Override
 	public List<Pregunta> findAll() {
-		List<Pregunta> preguntas = (List<Pregunta>)repository.findAll();
-		return preguntas;
+		List<Pregunta> pregunta = (List<Pregunta>)repository.findAll();
+		return pregunta;
 	}
 
 	@Override

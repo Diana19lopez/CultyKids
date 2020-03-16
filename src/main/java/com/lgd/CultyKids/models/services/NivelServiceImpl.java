@@ -11,35 +11,33 @@ import com.lgd.CultyKids.models.repository.NivelRepository;
 
 
 
-@Service
-public class NivelServiceImpl implements NivelService {
 
+	@Service
+	public class NivelServiceImpl implements NivelService{
+	
 	@Autowired
 	public NivelRepository repository;
-
-	@Override
-	public Nivel save(Nivel entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Optional<Nivel> findById(long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public List<Nivel> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Nivel> nivel = (List<Nivel>)repository.findAll();
+		return nivel;
 	}
-	 
 	
+	@Override
+	public Nivel save(Nivel entity) {
+		return repository.save(entity);
+	}
+	
+	@Override
+	public Optional<Nivel> findById(long id) {
+		return repository.findById(id);
+	}
+	
+	@Override
+	public void delete(Long id) {
+		repository.deleteById(id);
+		
+	}
 }
+

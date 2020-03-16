@@ -9,35 +9,33 @@ import org.springframework.stereotype.Service;
 import com.lgd.CultyKids.models.entities.Tema;
 import com.lgd.CultyKids.models.repository.TemaRepository;
 
-
+	
 	@Service
-	public class TemaServiceImpl implements TemaService {
+	public class TemaServiceImpl implements TemaService{
 	
 	@Autowired
 	public TemaRepository repository;
-
+	
 	@Override
 	public List<Tema> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Tema save(Tema entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Optional<Tema> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		
+		List<Tema> tema = (List<Tema>)repository.findAll();
+		return tema;
 	}
 	
+	@Override
+	public Tema save(Tema entity) {
+		return repository.save(entity);
 	}
+	
+	@Override
+	public Optional<Tema> findById(Long id) {
+		return repository.findById(id);
+	}
+	
+	@Override
+	public void delete(Long id) {
+		repository.deleteById(id);
+		
+	}
+	}
+

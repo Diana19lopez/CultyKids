@@ -11,35 +11,30 @@ import com.lgd.CultyKids.models.repository.UsuarioRepository;
 
 
 	@Service
-	public class UsuarioServiceImpl implements UsuarioService {
+	public class UsuarioServiceImpl implements UsuarioService{
 	
 	@Autowired
 	public UsuarioRepository repository;
-
+	
 	@Override
 	public List<Usuario> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Usuario> usuario = (List<Usuario>)repository.findAll();
+		return usuario;
 	}
-
+	
 	@Override
 	public Usuario save(Usuario entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.save(entity);
 	}
-
+	
 	@Override
 	public Optional<Usuario> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findById(id);
 	}
-
+	
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		repository.deleteById(id);
 		
 	}
-
-	
-	
-}
+	}
