@@ -1,23 +1,18 @@
 package com.lgd.CultyKids.controllers;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lgd.CultyKids.models.entities.Nivel;
 import com.lgd.CultyKids.models.services.NivelService;
 
-
-import com.lgd.CultyKids.models.entities.Nivel;
-
-
-
+@Component
 @RestController
 @RequestMapping("/nivel")
 public class NivelController {
@@ -25,13 +20,13 @@ public class NivelController {
 	@Autowired
 	private NivelService nivelService;
 	
-	@RequestMapping (value="/niveles", method = RequestMethod.GET)
+	@RequestMapping (value="/nivel", method = RequestMethod.GET)
 	public List<Nivel> getList(){
 		List<Nivel> address = nivelService.findAll();
 		return address;
 	}
 	
-	@RequestMapping(value="/niveles/nivel_id/contenido/", method = RequestMethod.GET)
+	@RequestMapping(value="/nivel/nivel_id/contenido/", method = RequestMethod.GET)
 	public Nivel obtenerPorId(@PathVariable("id") Long id){
 	java.util.Optional<Nivel> address = nivelService.findById(id);
 	return address.get();
@@ -50,8 +45,8 @@ public class NivelController {
 	}
 	
 	@RequestMapping (value="", method = RequestMethod.POST)
-	public Nivel guardar(@RequestBody Nivel nivel){
-		Nivel nvl = nivelService.save(nivel);
+	public Nivel guardar(Nivel entity){
+		Nivel nvl = nivelService.save(entity);
 	return nvl;
 		
 	}

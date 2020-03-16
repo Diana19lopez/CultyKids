@@ -1,10 +1,12 @@
 package com.lgd.CultyKids.models.services;
 
+
 import java.util.List;
 import java.util.Optional;
 
 import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.lgd.CultyKids.models.entities.Nivel;
 import com.lgd.CultyKids.models.repository.NivelRepository;
@@ -13,6 +15,7 @@ import com.lgd.CultyKids.models.repository.NivelRepository;
 
 
 	@Service
+	@Component
 	public class NivelServiceImpl implements NivelService{
 	
 	@Autowired
@@ -30,7 +33,7 @@ import com.lgd.CultyKids.models.repository.NivelRepository;
 	}
 	
 	@Override
-	public Optional<Nivel> findById(long id) {
+	public Optional<Nivel> findById (Long id) {
 		return repository.findById(id);
 	}
 	
@@ -39,5 +42,6 @@ import com.lgd.CultyKids.models.repository.NivelRepository;
 		repository.deleteById(id);
 		
 	}
+
 }
 

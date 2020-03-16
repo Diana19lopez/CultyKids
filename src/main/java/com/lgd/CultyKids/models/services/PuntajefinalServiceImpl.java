@@ -5,10 +5,12 @@ import java.util.Optional;
 
 import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.lgd.CultyKids.models.entities.PuntajeFinal;
 import com.lgd.CultyKids.models.repository.PuntajefinalRepository;
 
+	@Component
 	@Service
 	public class PuntajefinalServiceImpl implements PuntajefinalService{
 	

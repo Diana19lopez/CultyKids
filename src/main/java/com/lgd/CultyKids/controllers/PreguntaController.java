@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lgd.CultyKids.models.services.PreguntaService;
-import com.lgd.CultyKids.models.entities.Nivel;
 import com.lgd.CultyKids.models.entities.Pregunta;
 
 @RestController
