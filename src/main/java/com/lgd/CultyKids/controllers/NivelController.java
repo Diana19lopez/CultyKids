@@ -25,13 +25,13 @@ public class NivelController {
 	@Autowired
 	private NivelService nivelService;
 	
-	@RequestMapping (value="/preguntas", method = RequestMethod.GET)
+	@RequestMapping (value="/niveles", method = RequestMethod.GET)
 	public List<Nivel> getList(){
 		List<Nivel> address = nivelService.findAll();
 		return address;
 	}
 	
-	@RequestMapping(value="/preguntas/pregunta_id/respuestas/", method = RequestMethod.GET)
+	@RequestMapping(value="/niveles/nivel_id/contenido/", method = RequestMethod.GET)
 	public Nivel obtenerPorId(@PathVariable("id") Long id){
 	java.util.Optional<Nivel> address = nivelService.findById(id);
 	return address.get();
@@ -45,14 +45,14 @@ public class NivelController {
 	
 	@RequestMapping (value="", method = RequestMethod.PUT)
 	public Nivel actualizar(Nivel entity){
-		Nivel nivel = nivelService.save(entity);
-		return nivel;
+		Nivel nvl = nivelService.save(entity);
+		return nvl;
 	}
 	
 	@RequestMapping (value="", method = RequestMethod.POST)
 	public Nivel guardar(@RequestBody Nivel nivel){
-		Nivel pregunt = nivelService.save(nivel);
-	return pregunt;
+		Nivel nvl = nivelService.save(nivel);
+	return nvl;
 		
 	}
 }
