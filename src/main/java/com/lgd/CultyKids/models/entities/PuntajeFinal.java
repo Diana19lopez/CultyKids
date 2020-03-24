@@ -19,7 +19,7 @@ import javax.persistence.GenerationType;
 		public class PuntajeFinal implements Serializable { 
 		private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 		private Long id;
 
 	@Column(name="puntuacionfinal")
@@ -27,7 +27,7 @@ import javax.persistence.GenerationType;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 		@JoinColumn(name="usuario_id",nullable=false)
-	private Tema usuario;
+	private Usuario usuario;
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="respuesta_id",nullable=false)
@@ -41,12 +41,17 @@ import javax.persistence.GenerationType;
 		this.id = id;
 	}
 
-	public Tema getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
-	public void setRespuesta(String nivel) {
+	public void setRespuesta(Respuesta respuesta) {
 		this.respuesta = respuesta;
 	}
-	
+	public Respuesta getRespuesta() {
+		return respuesta;
+	}
 }

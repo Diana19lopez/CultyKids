@@ -1,6 +1,7 @@
 package com.lgd.CultyKids.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,14 +28,8 @@ public class UsuarioController {
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public Usuario obtenerPorId(@PathVariable("id") Long id){
-	java.util.Optional<Usuario> address = usuarioService.findById(id);
+		   Optional<Usuario> address = usuarioService.findById(id);
 	return address.get();
-	}
-	
-	@RequestMapping (value="", method = RequestMethod.PUT)
-	public Usuario actualizar(Usuario entity){
-		Usuario usuario = usuarioService.save(entity);
-		return usuario;
 	}
 	
 	@RequestMapping (value="", method = RequestMethod.POST)
@@ -43,5 +38,16 @@ public class UsuarioController {
 	return us;
 		
 	}
+	@RequestMapping (value="", method = RequestMethod.PUT)
+	public Usuario actualizar(Usuario entity){
+		Usuario usuario = usuarioService.save(entity);
+		return usuario;
+	}
+	
+	@RequestMapping(value="/{id}", method = RequestMethod.DELETE) 
+	public void deleteById(@PathVariable("id") Long id){ 
+		usuarioService.delete(id); 
+		} 
+	
 }
 

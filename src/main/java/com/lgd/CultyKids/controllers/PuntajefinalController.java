@@ -3,6 +3,7 @@ package com.lgd.CultyKids.controllers;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,13 +33,13 @@ public class PuntajefinalController {
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public  PuntajeFinal obtenerPorId(@PathVariable("id") Long id){
-	java.util.Optional< PuntajeFinal> address =  puntajefinalService.findById(id);
+	        Optional< PuntajeFinal> address =  puntajefinalService.findById(id);
 	return address.get();
 	}
 
 	
-	@RequestMapping (value="", method = RequestMethod.DELETE)
-	public void eliminar(@PathVariable ("id")Long id){
+	@RequestMapping (value="/{id}", method = RequestMethod.DELETE)
+	public void deleteById(@PathVariable ("id")Long id){
 		 puntajefinalService.delete(id);
 	}
 	

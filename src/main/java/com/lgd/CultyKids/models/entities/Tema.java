@@ -18,7 +18,7 @@ import javax.persistence.GenerationType;
 		public class Tema implements Serializable { 
 		private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 		private Long id;
 	
 	@Column(name="tema")
@@ -28,4 +28,24 @@ import javax.persistence.GenerationType;
 	@JoinColumn(name="nivel_id",nullable=false)
 	private Nivel nivel;
 
+	public Long getId() {
+		return id;
+	}
+	public void setId (Long id) {
+		this.id = id;
+	}
+	
+	public String getTema() {
+		return tema;
+	}
+	public void setTema(String tema) {
+		this.tema = tema;
+	}
+	
+	public Nivel getNivel() {
+		return nivel;
+	}
+	public void setNivel(Nivel nivel) {
+		this.nivel = nivel;
+	}
 }

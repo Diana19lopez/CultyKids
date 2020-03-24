@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,8 +34,8 @@ public class NivelController {
 	}
 
 	
-	@RequestMapping (value="", method = RequestMethod.DELETE)
-	public void eliminar(@PathVariable ("id")Long id){
+	@RequestMapping (value="/{id}", method = RequestMethod.DELETE)
+	public void deleteById(@PathVariable ("id")Long id){
 		nivelService.delete(id);
 	}
 	
@@ -45,8 +46,8 @@ public class NivelController {
 	}
 	
 	@RequestMapping (value="", method = RequestMethod.POST)
-	public Nivel guardar(Nivel entity){
-		Nivel nvl = nivelService.save(entity);
+	public Nivel guardar(@RequestBody Nivel nivel){
+		Nivel nvl = nivelService.save(nivel);
 	return nvl;
 		
 	}

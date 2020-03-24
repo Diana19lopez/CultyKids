@@ -5,7 +5,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.FetchType;
@@ -18,7 +17,7 @@ import javax.persistence.GenerationType;
 		public class Respuesta implements Serializable { 
 		private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 		private Long id;
 
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -65,7 +64,4 @@ import javax.persistence.GenerationType;
 	public void setSeleccion(Seleccion seleccion) {
 		this.seleccion = seleccion;
 	}
-
-	
-	
 }

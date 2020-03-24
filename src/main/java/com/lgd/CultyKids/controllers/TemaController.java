@@ -1,14 +1,15 @@
 package com.lgd.CultyKids.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lgd.CultyKids.models.entities.Seleccion;
 import com.lgd.CultyKids.models.entities.Tema;
 import com.lgd.CultyKids.models.services.TemaService;
 
@@ -27,7 +28,7 @@ public class TemaController {
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public Tema obtenerPorId(@PathVariable("id") Long id){
-	java.util.Optional<Tema> address = temaService.findById(id);
+			Optional<Tema> address = temaService.findById(id);
 	return address.get();
 	}
 	
@@ -38,9 +39,13 @@ public class TemaController {
 	}
 	
 	@RequestMapping (value="", method = RequestMethod.POST)
-	public Tema guardar(Tema entity){
-		Tema tema = temaService.save(entity);
-	return tema;
+	public Tema guardar(@RequestBody Tema tema){
+		Tema tem = temaService.save(tema);
+	return tem;
 		
 	}
+	@RequestMapping(value="/{id}", method = RequestMethod.DELETE) 
+	public void deleteById(@PathVariable("id") Long id){ 
+		temaService.delete(id); 
+		} 
 }

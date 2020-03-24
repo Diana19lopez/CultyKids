@@ -1,6 +1,7 @@
 package com.lgd.CultyKids.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,13 +28,13 @@ public class SeleccionController {
 	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public Seleccion obtenerPorId(@PathVariable("id") Long id){
-	java.util.Optional<Seleccion> address = seleccionService.findById(id);
+			Optional<Seleccion> address = seleccionService.findById(id);
 	return address.get();
 	}
 	
-	@RequestMapping (value="", method = RequestMethod.DELETE)
-	public void eliminar(Seleccion entity){
-		seleccionService.delete(entity.getId());
+	@RequestMapping (value="/{id}", method = RequestMethod.DELETE)
+	public void deleteById(@PathVariable ("id") Long id){
+		seleccionService.delete(id);
 	}
 	
 	@RequestMapping (value="", method = RequestMethod.PUT)
